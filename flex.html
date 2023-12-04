@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fernwirk IP Tool</title>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #3e2723; /* Dark Brown */
+            color: #f5f5f5; /* Light Grey */
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1, label {
+            color: #d7ccc8; /* Cream Coffee Autumn Style */
+        }
+
+        input {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            background-color: #6d4c41; /* Dark Cream Coffee Autumn Style */
+            color: #f5f5f5; /* Light Grey */
+            border: none;
+            outline: none; /* Remove the outline when clicked */
+        }
+
+        button {
+            background-color: #8d6e63; /* Brownish Taupe */
+            color: #fff;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #6d4c41; /* Slightly Darker Brownish Taupe */
+        }
+
+        button:active {
+            background-color: #8d6e63; /* Restore to the original color when pressed */
+        }
+    </style>
+    <script>
+        function executeBatchScript(location, option) {
+            var command = 'your_batch_script.bat ' + location + ' ' + option;
+
+            // Create an ActiveXObject to run the batch script
+            var shell = new ActiveXObject("WScript.Shell");
+            shell.Run(command, 1, true);
+        }
+    </script>
+</head>
+<body>
+    <h1>Fernwirk IP Tool</h1>
+
+    <label for="location">Location (1 or 2): </label>
+    <input type="text" id="location" name="location">
+
+    <label for="option">Option (1 to 12): </label>
+    <input type="text" id="option" name="option">
+
+    <button onclick="executeBatchScript(document.getElementById('location').value, document.getElementById('option').value)">Execute</button>
+</body>
+</html>
